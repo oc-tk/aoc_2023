@@ -1,14 +1,3 @@
-use std::fs::read_to_string;
-use regex::Regex;
-use std::collections::HashMap;
-
-fn read_lines(filename: &str) -> Vec<String> {
-    read_to_string(filename)
-        .unwrap()  // panic on possible file-reading errors
-        .lines()  // split the string into an iterator of string slices
-        .map(String::from)  // make each slice into a string
-        .collect()  // gather them together into a vector
-}
 
 fn main() {
     let mut sum:i32 = 0;
@@ -51,4 +40,35 @@ fn main() {
                         }
                     }
 
-    // match max_possible_values.get(part) {
+                    // match max_possible_values.get(part) {
+                    //     Some(&value) => {
+                    //         if max_possible_value_for_color > value {
+                    //             should_sum = false;
+                    //         }
+                    //         max_possible_value_for_color = 0;
+                    //     }
+                    //     None => {
+                    //         max_possible_value_for_color = part.parse::<i32>().unwrap();
+                    //     }
+                    //}
+                    //println!("{}", part);
+                }
+
+                //println!("{colors}");
+            }
+            //println!("{cubes}");
+        }
+
+        let num = game_num.replace("Game ", "").replace(":", "");
+        let mut partial_power = 1;
+        if should_sum {
+            for (key, value) in min_possible_values.iter() {
+                partial_power = partial_power * value;
+                println!("Key: {}, Value: {}", key, value);
+            }
+        }
+        sum += partial_power;
+        println!("{game_num}");
+    }
+    print!("{}", sum);
+}
