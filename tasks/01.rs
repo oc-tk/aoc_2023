@@ -15,11 +15,18 @@ fn get_numbers(input: &str) -> i32 {
     let replace_with = &["1ne", "2wo", "3hree", "4our", "5ive", "6ix", "7even", "8ight", "9ine"];
 
     let ac = AhoCorasick::new(patterns);
-    let result_str = ac.unwrap().replace_all(input, replace_with);
+    let result_str = ac
+        .unwrap()
+        .replace_all(input, replace_with);
     let replace_with = &["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
     let ac = AhoCorasick::new(patterns);
-    let result_char_vec:Vec<char> = ac.unwrap().replace_all(&result_str, replace_with).chars().filter(|c| c.is_numeric()).collect();
+    let result_char_vec:Vec<char> = ac
+        .unwrap()
+        .replace_all(&result_str, replace_with)
+        .chars()
+        .filter(|c| c.is_numeric())
+        .collect();
 
     let mut result:i32 = 0;
     if let Some(first_item) = result_char_vec.first() {
