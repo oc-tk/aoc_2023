@@ -13,9 +13,9 @@ fn read_lines(filename: &str) -> Vec<String> {
 fn main() {
     let mut sum:i32 = 0;
     let mut max_possible_values: HashMap<&str, i32> = HashMap::new();
-    max_possible_values.insert("red", 12);
-    max_possible_values.insert("green", 13);
-    max_possible_values.insert("blue", 14);
+    // max_possible_values.insert("red", 12);
+    // max_possible_values.insert("green", 13);
+    // max_possible_values.insert("blue", 14);
 
     let lines = read_lines("src/input.txt");
     for line in lines {
